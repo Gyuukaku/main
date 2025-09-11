@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
@@ -6,16 +7,44 @@ body {
     padding: 2em;
     background-color: #ffffff;
     color: #111111;
+    overflow: hidden; /* Contain pseudo-element */
 }
+
+/* Manga Speed Lines Effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 120vmax;
+    height: 120vmax;
+    background-image: repeating-radial-gradient(circle at center, #888, #888 1px, transparent 1px, transparent 10px);
+    transform-origin: center;
+    animation: zoom-in 0.5s linear infinite;
+    z-index: -1;
+    opacity: 0.4;
+}
+
+@keyframes zoom-in {
+    0% {
+        transform: translate(-50%, -50%) scale(0.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+}
+
 .container {
     position: relative;
     max-width: 800px;
     margin: auto;
     padding: 2em 3em;
-    background: #ffffff;
-    border-radius: 0; /* Sharper corners */
-    border: 1px solid #eaeaea;
+    background: transparent; /* Make container see-through */
+    border: none; /* Remove border */
 }
+
 .profile-image {
     position: absolute;
     top: 2em;
@@ -28,7 +57,14 @@ body {
     align-items: center;
     font-size: 60px;
     animation: spin 4s linear infinite;
+    text-shadow: 0 0 8px white, 0 0 5px white;
 }
+
+/* Add text shadow for readability */
+h1, h2, p {
+    text-shadow: 0 0 6px white, 0 0 4px white, 0 0 4px white;
+}
+
 h1 {
     font-weight: 700;
     font-size: 2.5em;
@@ -37,6 +73,7 @@ h1 {
     padding-bottom: 0.3em;
     margin-bottom: 0.5em;
 }
+
 h2 {
     font-weight: 700;
     color: #333;
@@ -44,13 +81,17 @@ h2 {
     padding-left: 0.5em;
     margin-top: 2em;
 }
+
 .section {
     margin-bottom: 1.5em;
 }
+
 .label {
     font-weight: 700;
     color: #555;
+    text-shadow: 0 0 6px white, 0 0 4px white; /* Also apply to labels */
 }
+
 p {
     margin-left: 0.5em;
 }
