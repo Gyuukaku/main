@@ -19,27 +19,9 @@ body {
     border: 1px solid #eaeaea;
 }
 
-#ant {
-    position: fixed;
-    font-size: 20px;
-    /* The transition duration should be slightly less than the JS interval */
-    transition: left 2.8s linear, top 2.8s linear, transform 2.8s linear;
-    z-index: 9999;
-}
 
-.profile-image {
-    position: absolute;
-    top: 2em;
-    right: 3em;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 60px;
-    animation: spin 4s linear infinite;
-}
+
+
 
 h1 {
     font-weight: 700;
@@ -71,8 +53,3 @@ p {
     margin-left: 0.5em;
 }
 
-@keyframes spin {
-    100% {
-        transform: rotate(360deg);
-    }
-}
